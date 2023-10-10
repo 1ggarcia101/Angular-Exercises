@@ -1,121 +1,95 @@
-<div class="card-container container-fluid mt-5">
-  <div class="card mx-5">
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="height: 100vh"
+>
+  <div class="card">
     <h5 class="card-header text-center">Login</h5>
     <div class="card-body">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="form-row d-flex justify-content-between">
-          <div class="col-md-4 col-lg-3 mb-3">
-            <label for="firstName">First name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="firstName"
-              placeholder="First name"
-              formControlName="firstName"
-            />
-            <span *ngIf="loginForm.get('firstName')?.invalid" class="messages">
-              <p
-                *ngIf="loginForm.controls['firstName'].errors?.['required']"
-                class="text-danger error"
-              >
-                Please enter a valid first name.
-              </p>
-            </span>
-          </div>
-          <div class="col-md-4 col-lg-3 mb-3">
-            <label for="lastName">Last name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="lastName"
-              placeholder="Last name"
-              formControlName="lastName"
-            />
-            <span *ngIf="loginForm.get('lastName')?.invalid" class="messages">
-              <p
-                *ngIf="loginForm.controls['lastName'].errors?.['required']"
-                class="text-danger error"
-              >
-                Please enter a valid last name.
-              </p>
-            </span>
-          </div>
-          <div class="col-md-4 col-lg-3 mb-3">
-            <label for="userName">Username</label>
-            <input
-              type="text"
-              class="form-control"
-              id="userName"
-              placeholder="Username"
-              formControlName="userName"
-            />
-            <span *ngIf="loginForm.get('userName')?.invalid" class="messages">
-              <p
-                *ngIf="loginForm.controls['userName'].errors?.['required']"
-                class="text-danger error"
-              >
-                Please enter a valid username.
-              </p>
-            </span>
-          </div>
+        <div class="col-md-4 col-lg-5 mb-3">
+          <label for="firstName">First name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            placeholder="First name"
+            formControlName="firstName"
+          />
+          <span *ngIf="loginForm.get('firstName')?.invalid" class="messages">
+            <p
+              *ngIf="loginForm.controls['firstName'].errors?.['required']"
+              class="text-danger error"
+            >
+              Please enter a valid first name.
+            </p>
+          </span>
         </div>
-        <div class="form-row d-flex justify-content-between">
-          <div class="col-md-4 col-lg-3 mb-3">
-            <label for="city">City</label>
-            <input
-              type="text"
-              class="form-control"
-              id="city"
-              placeholder="City"
-              formControlName="city"
-            />
-            <span *ngIf="loginForm.get('city')?.invalid" class="messages">
-              <p
-                *ngIf="loginForm.controls['city'].errors?.['required']"
-                class="text-danger error"
-              >
-                Please enter a valid city.
-              </p>
-            </span>
-          </div>
-          <div class="col-md-4 col-lg-3 mb-3">
-            <label for="state">State</label>
-            <input
-              type="text"
-              class="form-control"
-              id="state"
-              placeholder="State"
-              formControlName="state"
-            />
-            <span *ngIf="loginForm.get('state')?.invalid" class="messages">
-              <p
-                *ngIf="loginForm.controls['state'].errors?.['required']"
-                class="text-danger error"
-              >
-                Please enter a valid state.
-              </p>
-            </span>
-          </div>
-          <div class="col-md-4 col-lg-3 mb-3">
-            <label for="zip">Zip</label>
-            <input
-              type="text"
-              class="form-control"
-              id="zip"
-              placeholder="Zip"
-              formControlName="zip"
-            />
-            <span *ngIf="loginForm.get('zip')?.invalid" class="messages">
-              <p
-                *ngIf="loginForm.controls['zip'].errors?.['required']"
-                class="text-danger error"
-              >
-                Please enter a valid zipcode.
-              </p>
-            </span>
-          </div>
+        <div class="col-md-4 col-lg-5 mb-3">
+          <label for="lastName">Last name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            placeholder="Last name"
+            formControlName="lastName"
+          />
+          <span *ngIf="loginForm.get('lastName')?.invalid" class="messages">
+            <p
+              *ngIf="loginForm.controls['lastName'].errors?.['required']"
+              class="text-danger error"
+            >
+              Please enter a valid last name.
+            </p>
+          </span>
         </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <div class="col-md-4 col-lg-5 mb-3">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            placeholder="Username"
+            formControlName="username"
+          />
+          <span *ngIf="loginForm.get('username')?.invalid" class="messages">
+            <p
+              *ngIf="loginForm.controls['username'].errors?.['required']"
+              class="text-danger error"
+            >
+              Please enter a valid username.
+            </p>
+          </span>
+        </div>
+        <div class="col-md-4 col-lg-5 mb-3">
+          <label for="username">Password</label>
+          <input
+            type="text"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <span *ngIf="loginForm.get('password')?.invalid" class="messages">
+            <p
+              *ngIf="loginForm.controls['password'].errors?.['required']"
+              class="text-danger error"
+            >
+              Please enter a valid password.
+            </p>
+          </span>
+        </div>
+        <button
+          class="btn text-white"
+          style="background-color: #55acee"
+          role="button"
+          type="submit"
+          (click)="(onSubmit)"
+        >
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAJNJREFUSEvdlNsOgDAIQ93/f7TGRRLEQiGRGOeb7nJKC46t+RnN92+fAvarOiYi3BcdbgdIPB4oJYCVf0LaAHJxttGg2EwGrwOschFR/T6FoQqqF3n7HwDP82oFYuk8pyuohsqyWRjgeZ6yxA4mysAC2LTbSb+9rwXwPNbti/IJLWT+6r+pnhsEhQIzANY94fr/AQdq9ikZ67RLUgAAAABJRU5ErkJggg=="
+          />
+          Login
+        </button>
       </form>
     </div>
   </div>

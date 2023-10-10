@@ -1,0 +1,28 @@
+<div class="container d-flex justify-content-center">
+  <div class="jumbotron">
+    <h1 class="display-4">Hello, world!</h1>
+    <p class="lead">Want to hear a joke? Click the button!</p>
+    <hr class="my-4" />
+
+    <!-- Random Joke Section -->
+    <div class="random-joke-container">
+      <h2 class="display-4">Random Joke</h2>
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">{{ joke.setup }}</p>
+          <p class="card-text">{{ joke.punchline }}</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="lead">
+      <button
+        class="btn btn-primary btn-lg"
+        role="button"
+        (click)="getRandomJoke()"
+      >
+        Tell me a joke
+      </button>
+    </p>
+  </div>
+</div>

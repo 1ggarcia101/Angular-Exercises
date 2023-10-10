@@ -1,0 +1,33 @@
+.container, .jumbotron, .btn-primary {
+  color: white;
+}
+
+.random-joke-container {
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 20px;
+}
+
+.card-text {
+  font-size: 18px;
+}
+
+.btn-primary {
+  background-color: #68dcff;
+  margin-top: 20px;
+}
+
+.btn-primary:hover {
+  background-color: #021153;
+}
+
+.jumbotron {
+  width: 50%;
+  margin-top: 50px;
+}
+

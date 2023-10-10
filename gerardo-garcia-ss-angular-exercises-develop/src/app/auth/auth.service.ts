@@ -5,8 +5,9 @@ export class AuthService {
   private isAuthenticated = false;
   private loggedInUser: string | null = null;
 
-  login(username: string): boolean {
-    if (username === 'gera') {
+  login(username: string, password: string): boolean {
+    debugger
+    if (username === 'gera' && password === 'qwer') {
       this.isAuthenticated = true;
       this.loggedInUser = username;
       localStorage.setItem('loggedInUser', username);

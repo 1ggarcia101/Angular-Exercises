@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  loginError: string | null = null; // To store login error message
 
   constructor(
     private formBuilder: FormBuilder,
@@ -19,32 +20,35 @@ export class LoginComponent {
     this.loginForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
-      userName: ['', [Validators.required]],
-      city: ['', [Validators.required]],
-      state: ['', [Validators.required]],
-      zip: ['', [Validators.required]],
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 
   onSubmit() {
+    debugger
     console.log('Form submitted');
 
     if (this.loginForm.valid) {
       console.log('Form is valid');
 
       const formValues = this.loginForm.value;
-      console.log('Username:', formValues.userName);
+      console.log('Username:', formValues.username);
 
-      if (this.authService.login(formValues.userName)) {
+      const loginSuccessful = this.authService.login(formValues.username, formValues.password);
+
+      if (loginSuccessful) {
         console.log('Login Successful!');
         // Redirect to a protected route after successful login
         this.router.navigate(['/']);
         window.alert('Login Successful!');
       } else {
         console.log('Authentication failed');
+        this.loginError = 'Authentication failed. Please check your credentials.';
       }
     } else {
       console.log('Form is not valid');
+      this.loginError = 'Please provide both username and password.';
     }
   }
 }
