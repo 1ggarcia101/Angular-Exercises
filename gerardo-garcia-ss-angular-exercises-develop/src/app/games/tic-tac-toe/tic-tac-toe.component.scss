@@ -1,0 +1,54 @@
+$border-size: 1px;
+$border-color: #555;
+$square-color: #fff;
+$square-hover-color: #ddd;
+$focus-shadow: 0 0 0 2px #000;
+
+.game-area {
+  margin: 10px;
+}
+
+.game-container {
+  display: inline-block;
+  background-color: $border-color;
+  position: relative;
+}
+
+.square {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: $square-color;
+  border: none;
+  z-index: 1;
+
+  &:hover {
+    background-color: $square-hover-color;
+  }
+  &:focus {
+    z-index: 5;
+    box-shadow: $focus-shadow;
+    outline: none;
+  }
+  &:active {
+    background-color: darken($square-hover-color, 5%);
+  }
+}
+
+.row {
+  display: block;
+  position: relative;
+  z-index: 1;
+  &:focus-within {
+    z-index: 10;
+  }
+}
+
+.row + .row {
+  margin-top: $border-size;
+}
+
+.square + .square {
+  margin-left: $border-size;
+}

@@ -1,0 +1,12 @@
+<div>
+  <div id="statusArea" className="status">Next player: <span>X</span></div>
+  <div id="winnerArea" className="winner">Winner: <span>None</span></div>
+  <button>Reset</button>
+</div>
+<div class="game-area">
+  <section class="game-container">
+    <div class="row" *ngFor="let row of [1, 2, 3]">
+      <button *ngFor="let col of [1, 2, 3]" class="square">X</button>
+    </div>
+  </section>
+</div>
