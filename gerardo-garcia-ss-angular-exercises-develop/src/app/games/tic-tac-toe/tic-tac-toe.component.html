@@ -1,12 +1,15 @@
-<div>
-  <div id="statusArea" className="status">Next player: <span>X</span></div>
-  <div id="winnerArea" className="winner">Winner: <span>None</span></div>
-  <button>Reset</button>
+<div class="container text-center">
+  <div id="statusArea" class="status">Next player: <span>{{ currentPlayer }}</span></div>
+  <div id="winnerArea" class="winner">Winner: <span>{{ winner }}</span></div>
+  <button class="btn btn-primary" (click)="resetGame()">Reset</button>
 </div>
-<div class="game-area">
+
+<div class="container game-area text-center">
   <section class="game-container">
-    <div class="row" *ngFor="let row of [1, 2, 3]">
-      <button *ngFor="let col of [1, 2, 3]" class="square">X</button>
+    <div class="row" *ngFor="let row of [0, 1, 2]; let rowIndex = index">
+      <div class="col" *ngFor="let col of [0, 1, 2]; let colIndex = index">
+        <button class="square" (click)="makeMove(rowIndex, colIndex)">{{ board[rowIndex][colIndex] }}</button>
+      </div>
     </div>
   </section>
 </div>

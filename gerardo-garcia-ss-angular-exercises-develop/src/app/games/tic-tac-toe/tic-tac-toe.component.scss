@@ -4,12 +4,13 @@ $square-color: #fff;
 $square-hover-color: #ddd;
 $focus-shadow: 0 0 0 2px #000;
 
-.game-area {
-  margin: 10px;
+.container.game-area {
+  margin: 0 auto; // Center the game area horizontally
+  margin-top: 20px; // Add a top margin
+  max-width: 600px; // Adjust the maximum width as needed
 }
 
 .game-container {
-  display: inline-block;
   background-color: $border-color;
   position: relative;
 }
@@ -22,27 +23,27 @@ $focus-shadow: 0 0 0 2px #000;
   background-color: $square-color;
   border: none;
   z-index: 1;
+  margin: 1px; // Add margin to separate squares
 
   &:hover {
     background-color: $square-hover-color;
   }
+
   &:focus {
     z-index: 5;
     box-shadow: $focus-shadow;
     outline: none;
   }
+
   &:active {
     background-color: darken($square-hover-color, 5%);
   }
 }
 
 .row {
-  display: block;
-  position: relative;
-  z-index: 1;
-  &:focus-within {
-    z-index: 10;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .row + .row {
