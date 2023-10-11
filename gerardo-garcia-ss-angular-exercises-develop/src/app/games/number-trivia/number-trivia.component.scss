@@ -4,18 +4,33 @@
   width: 300px;
   max-width: 100%;
   box-sizing: border-box;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
-.trivia-message {
-  box-shadow: 0 0 0 1px #ddd inset;
-  color: #ffffff;
-  width: 300px;
-  max-width: 100%;
-  min-height: 100px;
-  padding: 10px;
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  padding: 20px;
+}
+
+.card-body {
+  color: black;
   box-sizing: border-box;
+  background-color: white;
 }
 
-p{
+.card-text{
+  color: black;
+  font-size: 18px;
+}
+
+p,
+h1,
+h2 {
   color: white;
+}
+.jumbotron {
+  width: 50%;
+  margin-top: 50px;
 }

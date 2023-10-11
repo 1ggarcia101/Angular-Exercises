@@ -5,19 +5,20 @@ import { TicTacToeComponent } from './tic-tac-toe/tic-tac-toe.component';
 import { NumberTriviaComponent } from './number-trivia/number-trivia.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { RandomJokesComponent } from './random-jokes/random-jokes.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
     path: 'tic-tac-toe',
     pathMatch: 'full',
     component: TicTacToeComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'random-jokes',
     pathMatch: 'full',
     component: RandomJokesComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'number-trivia',
@@ -31,7 +32,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [TicTacToeComponent, NumberTriviaComponent, RandomJokesComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  declarations: [
+    TicTacToeComponent,
+    NumberTriviaComponent,
+    RandomJokesComponent,
+  ],
+  imports: [CommonModule, RouterModule.forChild(routes), FormsModule],
 })
 export class GamesModule {}
