@@ -24,6 +24,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [DynamicFormTemplateComponent, PhoneBookComponent],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule.forChild(routes), FormsModule],
 })
 export class DynamicFormModule {}
