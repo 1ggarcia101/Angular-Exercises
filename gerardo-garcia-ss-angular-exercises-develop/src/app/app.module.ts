@@ -8,19 +8,25 @@ import { InfoComponent } from './info/info.component';
 import { HttpErrorInterceptor } from './auth/http-error-interceptor.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    InfoComponent,
-  ],
+  declarations: [AppComponent, InfoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [
     {
@@ -29,6 +35,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
       multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

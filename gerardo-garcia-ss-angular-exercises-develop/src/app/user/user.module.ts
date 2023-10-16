@@ -3,16 +3,26 @@ import { UsernameGeneratorComponent } from './username-generator/username-genera
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
-const routes: Routes = [{
-  path:'username-generator',
-  pathMatch: 'full',
-  component: UsernameGeneratorComponent,
-}];
+const routes: Routes = [
+  {
+    path: 'username-generator',
+    pathMatch: 'full',
+    component: UsernameGeneratorComponent,
+  },
+];
 
 @NgModule({
   declarations: [UsernameGeneratorComponent],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule.forChild(routes)],
-  exports: [UsernameGeneratorComponent]
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    RouterModule.forChild(routes),
+  ],
+  exports: [UsernameGeneratorComponent],
 })
 export class UserModule {}

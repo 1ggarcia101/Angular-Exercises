@@ -1,5 +1,5 @@
 $border-size: 1px;
-$border-color: #555;
+$border-color: transparent;
 $square-color: #fff;
 $square-hover-color: #ddd;
 $focus-shadow: 0 0 0 2px #000;
@@ -18,12 +18,13 @@ $focus-shadow: 0 0 0 2px #000;
 .square {
   display: inline-block;
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 160px; /* Increase the width to make the squares bigger */
+  height: 160px; /* Increase the height to make the squares bigger */
   background-color: $square-color;
   border: none;
   z-index: 1;
-  margin: 1px; // Add margin to separate squares
+  margin: 0; /* Remove margin to make squares closer together */
+  font-size: 36px; /* Increase the font size for X and O */
 
   &:hover {
     background-color: $square-hover-color;
@@ -52,4 +53,22 @@ $focus-shadow: 0 0 0 2px #000;
 
 .square + .square {
   margin-left: $border-size;
+}
+
+.btn{
+  color: transparent;
+  width: 100px;
+  height: 50px;
+}
+
+.btn:hover {
+  background-color: #021153;
+}
+
+.text-center{
+  color: white;
+}
+
+.status, .winner {
+  font-size: 30px; /* Make text size bigger in status and winner areas */
 }

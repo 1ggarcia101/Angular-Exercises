@@ -10,18 +10,22 @@ export class TicTacToeComponent {
   gameForm: FormGroup;
   currentPlayer: 'X' | 'O' = 'X'; // Start with player X
   winner: 'X' | 'O' | null = null; // Initialize with no winner
-  board: (null | "X" | "O")[][] = [
+  board: (null | 'X' | 'O')[][] = [
     [null, null, null],
     [null, null, null],
-    [null, null, null]
+    [null, null, null],
   ];
 
   constructor() {
     this.gameForm = new FormGroup({});
-    this.board = [[null, null, null], [null, null, null], [null, null, null]];
+    this.board = [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null],
+    ];
     this.initFormControls();
   }
-  
+
   private initFormControls() {
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
@@ -36,7 +40,7 @@ export class TicTacToeComponent {
     if (!this.board[row][col] && !this.winner) {
       this.board[row][col] = this.currentPlayer;
       this.gameForm.get(`cell_${row}_${col}`)?.setValue(this.currentPlayer);
-  
+
       // Check for a win
       if (this.checkForWin(row, col, this.currentPlayer)) {
         this.winner = this.currentPlayer;
@@ -46,7 +50,7 @@ export class TicTacToeComponent {
       }
     }
   }
-  
+
   checkForWin(row: number, col: number, player: 'X' | 'O'): boolean {
     // Check for a win in the row
     let win = true;
@@ -57,7 +61,7 @@ export class TicTacToeComponent {
       }
     }
     if (win) return true;
-  
+
     // Check for a win in the column
     win = true;
     for (let r = 0; r < 3; r++) {
@@ -67,7 +71,7 @@ export class TicTacToeComponent {
       }
     }
     if (win) return true;
-  
+
     // Check for a win in the main diagonal (top-left to bottom-right)
     if (row === col) {
       win = true;
@@ -79,7 +83,7 @@ export class TicTacToeComponent {
       }
       if (win) return true;
     }
-  
+
     // Check for a win in the other diagonal (top-right to bottom-left)
     if (row + col === 2) {
       win = true;
@@ -91,7 +95,7 @@ export class TicTacToeComponent {
       }
       if (win) return true;
     }
-  
+
     return false;
   }
 
@@ -100,18 +104,13 @@ export class TicTacToeComponent {
     this.board = [
       [null, null, null],
       [null, null, null],
-      [null, null, null]
+      [null, null, null],
     ];
-  
+
     // Reset the current player to the starting player (e.g., 'X')
     this.currentPlayer = 'X';
-  
+
     // Reset the winner to 'None' since the game is not won yet
     this.winner = null;
   }
-  
-  
-  
-  
-  
 }

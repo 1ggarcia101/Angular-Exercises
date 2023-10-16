@@ -1,13 +1,13 @@
-<div class="container d-flex justify-content-center">
-  <div class="jumbotron">
-    <h1 class="display-4">Hello, world!</h1>
-    <p class="lead">Want to hear a joke? Click the button!</p>
+<div class="container d-flex justify-content-center align-items-center h-100">
+  <div class="jumbotron"> <!-- Add a top margin to raise the jumbotron -->
+    <h1 class="display-4 text-center">Hello, world!</h1>
+    <p class="lead text-center my-5">Want to hear a joke? Click the button!</p>
     <hr class="my-4" />
 
     <!-- Random Joke Section -->
-    <div class="random-joke-container">
-      <h2 class="display-4">Random Joke</h2>
-      <div class="card">
+    <div class="random-joke-container pt-3">
+      <h2 class="display-4 text-center">Random Joke</h2>
+      <div class="card mx-auto"> <!-- Use mx-auto to center the card horizontally -->
         <div class="card-body">
           <p class="card-text">{{ joke.setup }}</p>
           <p class="card-text">{{ joke.punchline }}</p>
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <p class="lead">
+    <p class="lead text-center"> <!-- Center the button text -->
       <button
         class="btn btn-primary btn-lg mt-5"
         role="button"

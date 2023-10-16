@@ -6,7 +6,6 @@ export class AuthService {
   private loggedInUser: string | null = null;
 
   login(username: string, password: string): boolean {
-    debugger
     if (username === 'gera' && password === 'qwer') {
       this.isAuthenticated = true;
       this.loggedInUser = username;

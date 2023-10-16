@@ -6,6 +6,7 @@ import { NumberTriviaComponent } from './number-trivia/number-trivia.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { RandomJokesComponent } from './random-jokes/random-jokes.component';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
   {
@@ -37,6 +38,11 @@ const routes: Routes = [
     NumberTriviaComponent,
     RandomJokesComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), FormsModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FormsModule,
+    MatButtonModule,
+  ],
 })
 export class GamesModule {}

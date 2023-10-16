@@ -1,15 +1,32 @@
 <div class="container text-center">
-  <div id="statusArea" class="status">Next player: <span>{{ currentPlayer }}</span></div>
-  <div id="winnerArea" class="winner">Winner: <span>{{ winner }}</span></div>
-  <button class="btn btn-primary" (click)="resetGame()">Reset</button>
+  <div id="statusArea" class="status pt-3">
+    Next player: <span>{{ currentPlayer }}</span>
+  </div>
+  <div id="winnerArea" class="winner mt-5">
+    Winner: <span>{{ winner }}</span>
+  </div>
 </div>
 
-<div class="container game-area text-center">
+<div class="container game-area text-center mt-5">
   <section class="game-container">
     <div class="row" *ngFor="let row of [0, 1, 2]; let rowIndex = index">
       <div class="col" *ngFor="let col of [0, 1, 2]; let colIndex = index">
-        <button class="square" (click)="makeMove(rowIndex, colIndex)">{{ board[rowIndex][colIndex] }}</button>
+        <button
+          mat-raised-button
+          class="square"
+          (click)="makeMove(rowIndex, colIndex)"
+        >
+          {{ board[rowIndex][colIndex] }}
+        </button>
       </div>
     </div>
   </section>
+  <button
+    mat-raised-button
+    color="transparent"
+    class="btn mt-5"
+    (click)="resetGame()"
+  >
+    Reset
+  </button>
 </div>

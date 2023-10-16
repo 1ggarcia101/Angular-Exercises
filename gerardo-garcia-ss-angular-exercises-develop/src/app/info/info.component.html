@@ -1,33 +1,35 @@
 <div class="container d-flex justify-content-center">
   <div class="jumbotron">
-    <h1 class="display-4">Welcome to the Info page.</h1>
-    <p class="lead">You can navigate to other pages from here</p>
+    <h1 class="display-4 d-flex justify-content-center my-5">Welcome to the Info page.</h1>
+    <p class="lead d-flex justify-content-center my-5">You can navigate to other pages from here</p>
     <hr class="my-4" />
 
     <!-- Random Joke Section -->
     <div class="random-joke-container">
-      <h2 class="display-4">Go To:</h2>
+      <h2 class="display-4 d-flex justify-content-center">Go To:</h2>
 
-      <div class="buttons-container d-flex justify-content-between">
-        <button routerLink="/games/random-jokes" class="btn btn-primary">
+      <div class="buttons-container d-flex justify-content-center mt-4">
+        <button routerLink="/games/random-jokes" class="btn btn-lg btn-primary">
           Random Jokes <i class="bx bx-laugh"></i>
         </button>
-        <button routerLink="/user/username-generator" class="btn btn-primary">
+        <button routerLink="/user/username-generator" class="btn btn-lg btn-primary">
           Random Username Generator <i class="bx bx-message-alt-edit"></i>
         </button>
-        <button routerLink="/games/number-trivia" class="btn btn-primary">
+        <button routerLink="/games/number-trivia" class="btn btn-lg btn-primary">
           Number Trivia <i class="bx bx-calculator"></i>
         </button>
-        <button routerLink="/games/tic-tac-toe" class="btn btn-primary">
+        <button routerLink="/games/tic-tac-toe" class="btn btn-lg btn-primary">
           Tic-Tac-Toe <i class="bx bx-x"></i> <i class="bx bx-circle"></i>
         </button>
-        <button routerLink="/dynamic-form/phone-book" class="btn btn-primary">
+      </div>
+      <div class="buttons-container d-flex justify-content-center">
+        <button routerLink="/dynamic-form/phone-book" class="btn btn-lg btn-primary">
           Phone Book <i class="bx bx-book-bookmark"></i>
         </button>
-        <button routerLink="/auth/login" class="btn btn-primary">
+        <button routerLink="/auth/login" class="btn btn-lg btn-primary">
           Login <i class="bx bx-spreadsheet"></i>
         </button>
-        <button routerLink="/auth/forbidden" class="btn btn-primary">
+        <button routerLink="/auth/forbidden" class="btn btn-lg btn-primary">
           Forbidden <i class="bx bxs-error"></i>
         </button>
       </div>
