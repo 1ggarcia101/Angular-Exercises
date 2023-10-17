@@ -1,39 +1,105 @@
-<div class="container">
-    <h2>Phone Book</h2>
-  
-    <!-- Form for adding new contacts -->
-    <form (ngSubmit)="addContact()" #contactForm="ngForm">
-      <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input type="text" id="firstName" name="firstName" [(ngModel)]="newContact.firstName" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input type="text" id="lastName" name="lastName" [(ngModel)]="newContact.lastName" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label for="phoneNumber">Phone Number</label>
-        <input type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)]="newContact.phoneNumber" class="form-control" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Add Contact</button>
-    </form>
-  
-    <!-- Table for displaying contacts -->
-    <table class="table">
-      <thead>
-        <tr>
-          <th (click)="sort('firstName')">First Name <i class="fa fa-sort" [ngClass]="getSortIcon('firstName')"></i></th>
-          <th (click)="sort('lastName')">Last Name <i class="fa fa-sort" [ngClass]="getSortIcon('lastName')"></i></th>
-          <th (click)="sort('phoneNumber')">Phone Number <i class="fa fa-sort" [ngClass]="getSortIcon('phoneNumber')"></i></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let contact of sortedContacts">
-          <td>{{ contact.firstName }}</td>
-          <td>{{ contact.lastName }}</td>
-          <td>{{ contact.phoneNumber }}</td>
-        </tr>
-      </tbody>
-    </table>
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="height: 40vh"
+>
+  <div class="card ">
+    <h1 class="card-header text-center py-4">Phone Book</h1>
+    <div class="card-body">
+      
+      <form (ngSubmit)="addContact()" #contactForm="ngForm">
+        <mat-form-field class="form-group">
+          <mat-label for="firstName">First Name</mat-label>
+          <input
+            matInput
+            type="text"
+            id="firstName"
+            name="firstName"
+            [(ngModel)]="newContact.firstName"
+            class="form-control"
+            required
+            #firstName="ngModel" 
+          />
+          <mat-error
+            class="text-danger error"
+            *ngIf="firstName.invalid && firstName.errors?.['required']" 
+          >
+            First name is required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-group">
+          <mat-label for="lastName">Last Name</mat-label>
+          <input
+            matInput
+            type="text"
+            id="lastName"
+            name="lastName"
+            [(ngModel)]="newContact.lastName"
+            class="form-control"
+            required
+            #lastName="ngModel"
+          />
+          <mat-error
+            class="text-danger error"
+            *ngIf="lastName.invalid && lastName.errors?.['required']" 
+          >
+            Last name is required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-group">
+          <mat-label for="phoneNumber">Phone Number</mat-label>
+          <input
+            matInput
+            type="tel"
+            id="phoneNumber"
+            name="phoneNumber"
+            [(ngModel)]="newContact.phoneNumber"
+            class="form-control"
+            required
+            #phoneNumber="ngModel"
+          />
+          <mat-error
+            class="text-danger error"
+            *ngIf="phoneNumber.invalid && phoneNumber.errors?.['required']" 
+          >
+            Phone number is required.
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button type="submit" class="btn btn-primary" color="accent">
+          Add Contact
+        </button>
+      </form>
+    </div>
   </div>
+
   
+</div>
+
+<div
+  class="d-flex justify-content-center align-items-center"
+>
+<table class="table">
+  <thead>
+    <tr>
+      <th (click)="sort('firstName')">
+        First Name
+        <i class="fa fa-sort" [ngClass]="getSortIcon('firstName')"></i>
+      </th>
+      <th (click)="sort('lastName')">
+        Last Name
+        <i class="fa fa-sort" [ngClass]="getSortIcon('lastName')"></i>
+      </th>
+      <th (click)="sort('phoneNumber')">
+        Phone Number
+        <i class="fa fa-sort" [ngClass]="getSortIcon('phoneNumber')"></i>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of contacts">
+      <td>{{ contact.firstName }}</td>
+      <td>{{ contact.lastName }}</td>
+      <td>{{ contact.phoneNumber }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

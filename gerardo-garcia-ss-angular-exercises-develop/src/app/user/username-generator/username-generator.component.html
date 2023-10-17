@@ -3,79 +3,82 @@
   style="height: 100vh"
 >
   <div class="card">
-    <h2 class="card-header text-center">Username Generator</h2>
+    <h2 class="card-header text-center py-4">Username Generator</h2>
     <div class="card-body mt-3">
       <form class="form" [formGroup]="usernameForm">
-        <mat-form-field class="form-field">
-          <mat-label for="firstName">First Name</mat-label>
-          <input
-            matInput
-            type="text"
-            id="firstName"
-            formControlName="firstName"
-            class="form-control mt-3"
-          />
-          <mat-error
-            class="text-danger error"
-            *ngIf="usernameForm.get('firstName')?.hasError('required')"
-          >
-            First name is required.
-          </mat-error>
-          <mat-error
-            class="text-danger error"
-            *ngIf="usernameForm.get('firstName')?.hasError('minlength')"
-          >
-            Minimum length is 3 characters.
-          </mat-error>
-          <mat-error
-            class="text-danger error"
-            *ngIf="usernameForm.get('firstName')?.hasError('maxlength')"
-          >
-            Maximum length is 30 characters.
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="form-field">
-          <mat-label for="lastName">Last Name</mat-label>
-          <input
-            matInput
-            type="text"
-            id="lastName"
-            formControlName="lastName"
-            class="form-control mt-3"
-          />
-          <mat-error
-            class="text-danger error"
-            *ngIf="usernameForm.get('lastName')?.hasError('required')"
-          >
-            Last name is required.
-          </mat-error>
-          <mat-error
-            class="text-danger error"
-            *ngIf="usernameForm.get('lastName')?.hasError('minlength')"
-          >
-            Minimum length is 2 characters.
-          </mat-error>
-          <mat-error
-            class="text-danger error"
-            *ngIf="usernameForm.get('lastName')?.hasError('maxlength')"
-          >
-            Maximum length is 40 characters.
-          </mat-error>
-        </mat-form-field>
-
-        <div class="generated-username mt-5">
+        <div class="row">
           <mat-form-field class="form-field">
-            <mat-label for="generatedUsername">Generated Username</mat-label>
+            <mat-label for="firstName">First Name</mat-label>
             <input
               matInput
               type="text"
-              id="generatedUsername"
+              id="firstName"
+              formControlName="firstName"
               class="form-control mt-3"
-              [value]="generatedUsername"
-              readonly
             />
+            <mat-error
+              class="text-danger error"
+              *ngIf="usernameForm.get('firstName')?.hasError('required')"
+            >
+              First name is required.
+            </mat-error>
+            <mat-error
+              class="text-danger error"
+              *ngIf="usernameForm.get('firstName')?.hasError('minlength')"
+            >
+              Minimum length is 3 characters.
+            </mat-error>
+            <mat-error
+              class="text-danger error"
+              *ngIf="usernameForm.get('firstName')?.hasError('maxlength')"
+            >
+              Maximum length is 30 characters.
+            </mat-error>
           </mat-form-field>
+
+          <mat-form-field class="form-field">
+            <mat-label for="lastName">Last Name</mat-label>
+            <input
+              matInput
+              type="text"
+              id="lastName"
+              formControlName="lastName"
+              class="form-control mt-3"
+            />
+            <mat-error
+              class="text-danger error"
+              *ngIf="usernameForm.get('lastName')?.hasError('required')"
+            >
+              Last name is required.
+            </mat-error>
+            <mat-error
+              class="text-danger error"
+              *ngIf="usernameForm.get('lastName')?.hasError('minlength')"
+            >
+              Minimum length is 2 characters.
+            </mat-error>
+            <mat-error
+              class="text-danger error"
+              *ngIf="usernameForm.get('lastName')?.hasError('maxlength')"
+            >
+              Maximum length is 40 characters.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <div class="generated-username mt-5">
+            <mat-form-field class="form-field">
+              <mat-label for="generatedUsername">Generated Username</mat-label>
+              <input
+                matInput
+                type="text"
+                id="generatedUsername"
+                class="form-control mt-3"
+                [value]="generatedUsername"
+                readonly
+              />
+            </mat-form-field>
+          </div>
         </div>
       </form>
     </div>

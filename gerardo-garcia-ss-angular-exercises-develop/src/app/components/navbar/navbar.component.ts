@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   sidenavOpen = false;
-
-  toggleSidenav() {
-    this.sidenavOpen = !this.sidenavOpen;
-  }
 }

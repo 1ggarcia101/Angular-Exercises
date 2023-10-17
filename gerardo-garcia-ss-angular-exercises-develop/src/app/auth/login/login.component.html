@@ -3,81 +3,86 @@
   style="height: 100vh"
 >
   <div class="card">
-    <h2 class="card-header text-center">Login</h2>
-    <div class="card-body">
+    <h2 class="card-header text-center py-4">Login</h2>
+    <div class="card-body py-5">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-form-field class="form-field">
-          <mat-label for="firstName">First name</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control mt-3"
-            id="firstName"
-            placeholder="First name"
-            formControlName="firstName"
-          />
-          <mat-error
-            *ngIf="loginForm.get('firstName')?.hasError('required')"
-            class="text-danger error"
-          >
-            Please enter a valid first name.
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="form-field">
-          <mat-label for="lastName">Last name</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control mt-3"
-            id="lastName"
-            placeholder="Last name"
-            formControlName="lastName"
-          />
-          <mat-error
-            *ngIf="loginForm.get('lastName')?.hasError('required')"
-            class="text-danger error"
-          >
-            Please enter a valid last name.
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="form-field">
-          <mat-label for="username">Username</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control mt-3"
-            id="username"
-            placeholder="Username"
-            formControlName="username"
-          />
-          <mat-error
-            *ngIf="loginForm.get('username')?.hasError('required')"
-            class="text-danger error"
-          >
-            Please enter a valid username.
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="form-field">
-          <mat-label for="username">Password</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control mt-3"
-            id="password"
-            placeholder="Password"
-            formControlName="password"
-          />
-          <mat-error
-            *ngIf="loginForm.get('password')?.hasError('required')"
-            class="text-danger error"
-          >
-            Please enter a valid password.
-          </mat-error>
-        </mat-form-field>
+        <!-- <div class="row">
+          <mat-form-field class="form-field mt-4">
+            <mat-label for="firstName">First name</mat-label>
+            <input
+              matInput
+              type="text"
+              class="form-control mt-3"
+              id="firstName"
+              placeholder="First name"
+              formControlName="firstName"
+            />
+            <mat-error
+              *ngIf="loginForm.get('firstName')?.hasError('required')"
+              class="text-danger error"
+            >
+              Please enter a valid first name.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <mat-label for="lastName">Last name</mat-label>
+            <input
+              matInput
+              type="text"
+              class="form-control mt-3"
+              id="lastName"
+              placeholder="Last name"
+              formControlName="lastName"
+            />
+            <mat-error
+              *ngIf="loginForm.get('lastName')?.hasError('required')"
+              class="text-danger error"
+            >
+              Please enter a valid last name.
+            </mat-error>
+          </mat-form-field>
+        </div> -->
+        <div class="row">
+          <mat-form-field class="form-field">
+            <mat-label for="username">Username</mat-label>
+            <input
+              matInput
+              type="text"
+              class="form-control mt-3"
+              id="username"
+              placeholder="Username"
+              formControlName="username"
+            />
+            <mat-error
+              *ngIf="loginForm.get('username')?.hasError('required')"
+              class="text-danger error"
+            >
+              Please enter a valid username.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <mat-label for="username">Password</mat-label>
+            <input
+              matInput
+              type="text"
+              class="form-control mt-3"
+              id="password"
+              placeholder="Password"
+              formControlName="password"
+            />
+            <mat-error
+              *ngIf="loginForm.get('password')?.hasError('required')"
+              class="text-danger error"
+            >
+              Please enter a valid password.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
         <button
           mat-raised-button
           color="accent"
-          class="btn text-white"
+          class="btn text-white d-flex justify-content-center"
           role="button"
           type="submit"
           (click)="(onSubmit)"
