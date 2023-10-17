@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatButtonModule} from '@angular/material/button';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +16,8 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
     this.loginForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
@@ -29,27 +28,25 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    console.log('Form submitted');
-
     if (this.loginForm.valid) {
-      console.log('Form is valid');
-
       const formValues = this.loginForm.value;
-      console.log('Username:', formValues.username);
-
-      const loginSuccessful = this.authService.login(formValues.username, formValues.password);
+      const loginSuccessful = this.authService.login(
+        formValues.username,
+        formValues.password
+      );
 
       if (loginSuccessful) {
-        console.log('Login Successful!');
+        // Display a successful login message using MatSnackBar
+        this.snackBar.open('Login Successful!', 'Close', {
+        });
+
         // Redirect to a protected route after successful login
         this.router.navigate(['/']);
-        window.alert('Login Successful!');
       } else {
-        console.log('Authentication failed');
-        this.loginError = 'Authentication failed. Please check your credentials.';
+        this.loginError =
+          'Authentication failed. Please check your credentials.';
       }
     } else {
-      console.log('Form is not valid');
       this.loginError = 'Please provide both username and password.';
     }
   }

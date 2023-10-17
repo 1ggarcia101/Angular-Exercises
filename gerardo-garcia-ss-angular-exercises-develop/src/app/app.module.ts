@@ -11,11 +11,19 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatButtonModule} from '@angular/material/button';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
-  declarations: [AppComponent, InfoComponent],
+  declarations: [
+    AppComponent,
+    InfoComponent,
+    NavbarComponent,
+    SidenavComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,7 +34,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule,
+    MatSidenavModule,
   ],
   providers: [
     {

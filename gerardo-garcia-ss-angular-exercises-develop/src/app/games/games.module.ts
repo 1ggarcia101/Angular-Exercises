@@ -25,6 +25,7 @@ const routes: Routes = [
     path: 'number-trivia',
     pathMatch: 'full',
     component: NumberTriviaComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: '**',

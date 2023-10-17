@@ -5,12 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { AuthGuard } from '../auth/auth.guard';
 
 const routes: Routes = [
   {
     path: 'username-generator',
     pathMatch: 'full',
     component: UsernameGeneratorComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

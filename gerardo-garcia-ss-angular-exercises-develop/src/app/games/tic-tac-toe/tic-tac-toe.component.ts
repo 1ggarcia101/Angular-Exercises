@@ -8,6 +8,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class TicTacToeComponent {
   gameForm: FormGroup;
+  isDraw: boolean = false;
   currentPlayer: 'X' | 'O' = 'X'; // Start with player X
   winner: 'X' | 'O' | null = null; // Initialize with no winner
   board: (null | 'X' | 'O')[][] = [
@@ -45,6 +46,21 @@ export class TicTacToeComponent {
       if (this.checkForWin(row, col, this.currentPlayer)) {
         this.winner = this.currentPlayer;
       } else {
+        // Increment the move count
+        let moveCount = 0;
+        for (let r = 0; r < 3; r++) {
+          for (let c = 0; c < 3; c++) {
+            if (this.board[r][c]) {
+              moveCount++;
+            }
+          }
+        }
+
+        // If there are 9 moves, and no player has won, it's a draw
+        if (moveCount === 9) {
+          this.isDraw = true;
+        }
+
         // Switch players
         this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
       }
@@ -107,10 +123,10 @@ export class TicTacToeComponent {
       [null, null, null],
     ];
 
-    // Reset the current player to the starting player (e.g., 'X')
     this.currentPlayer = 'X';
 
-    // Reset the winner to 'None' since the game is not won yet
     this.winner = null;
+
+    this.isDraw = false;
   }
 }

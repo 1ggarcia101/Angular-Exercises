@@ -1,9 +1,12 @@
 <div class="container text-center">
   <div id="statusArea" class="status pt-3">
-    Next player: <span>{{ currentPlayer }}</span>
+    <ng-container *ngIf="!isDraw">
+      Next player: <span>{{ currentPlayer }}</span>
+    </ng-container>
   </div>
   <div id="winnerArea" class="winner mt-5">
     Winner: <span>{{ winner }}</span>
+    <ng-container *ngIf="isDraw"> It's a draw! </ng-container>
   </div>
 </div>
 
