@@ -7,6 +7,8 @@ import { AuthGuard } from '../auth/auth.guard';
 import { RandomJokesComponent } from './random-jokes/random-jokes.component';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpErrorInterceptor } from '../auth/http-error-interceptor.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -44,6 +46,13 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     MatButtonModule,
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true,
+    },
   ],
 })
 export class GamesModule {}

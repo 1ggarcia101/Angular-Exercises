@@ -20,8 +20,6 @@ export class LoginComponent {
     private snackBar: MatSnackBar
   ) {
     this.loginForm = this.formBuilder.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
@@ -36,7 +34,6 @@ export class LoginComponent {
       );
 
       if (loginSuccessful) {
-        // Display a successful login message using MatSnackBar
         this.snackBar.open('Login Successful!', 'Close', {
         });
 

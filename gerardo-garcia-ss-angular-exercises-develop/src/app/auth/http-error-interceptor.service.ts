@@ -10,10 +10,11 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   intercept(
     request: HttpRequest<any>,
@@ -21,10 +22,12 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (error.status === 401) {
-          this.router.navigate(['/auth/login']);
-        } else if (error.status === 403) {
+        if (error.status === 403) {
+          // User is forbidden
           this.router.navigate(['/auth/forbidden']);
+        } else if (error.status === 401) {
+          // User is not authenticated
+          this.router.navigate(['/auth/login']);
         }
         return throwError(error);
       })

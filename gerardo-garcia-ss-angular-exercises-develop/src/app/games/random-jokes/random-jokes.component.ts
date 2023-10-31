@@ -16,14 +16,11 @@ export class RandomJokesComponent implements OnInit {
   }
 
   getRandomJoke() {
-    // Fetch a random joke from the API
     this.httpClient.get('https://official-joke-api.appspot.com/random_joke').subscribe(
       (response) => {
-        // Handle a successful response here
         this.joke = response;
       },
       (error) => {
-        // Handle errors here
         console.error('Error fetching random joke:', error);
       }
     );

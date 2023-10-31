@@ -1,5 +1,23 @@
-<p>Add code to render dynamic form fields under this message:</p>
-
-<!-- Code goes here -->
-
-<pre>{{ form?.value | json }}</pre>
+<div class="center-content">
+    <p>Add code to render dynamic form fields under this message:</p>
+  
+    <!-- Render dynamic form fields -->
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div *ngFor="let prop of personProps">
+        <label for="{{ prop }}">{{ prop }}</label>
+        <input
+          type="text"
+          [formControlName]="prop"
+          [id]="prop"
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  
+    <p><em>Edit the 'person' field to render all the fields.</em></p>
+  
+    <button (click)="modifyPerson()">Modify 'person' Object</button>
+  
+    <pre>{{ form.value | json }}</pre>
+  </div>
+  

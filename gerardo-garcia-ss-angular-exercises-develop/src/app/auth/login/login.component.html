@@ -1,47 +1,11 @@
 <div
   class="d-flex justify-content-center align-items-center"
-  style="height: 100vh"
+  style="height: 80vh"
 >
   <div class="card">
     <h2 class="card-header text-center py-4">Login</h2>
     <div class="card-body py-5">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <!-- <div class="row">
-          <mat-form-field class="form-field mt-4">
-            <mat-label for="firstName">First name</mat-label>
-            <input
-              matInput
-              type="text"
-              class="form-control mt-3"
-              id="firstName"
-              placeholder="First name"
-              formControlName="firstName"
-            />
-            <mat-error
-              *ngIf="loginForm.get('firstName')?.hasError('required')"
-              class="text-danger error"
-            >
-              Please enter a valid first name.
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field class="form-field">
-            <mat-label for="lastName">Last name</mat-label>
-            <input
-              matInput
-              type="text"
-              class="form-control mt-3"
-              id="lastName"
-              placeholder="Last name"
-              formControlName="lastName"
-            />
-            <mat-error
-              *ngIf="loginForm.get('lastName')?.hasError('required')"
-              class="text-danger error"
-            >
-              Please enter a valid last name.
-            </mat-error>
-          </mat-form-field>
-        </div> -->
         <div class="row">
           <mat-form-field class="form-field">
             <mat-label for="username">Username</mat-label>

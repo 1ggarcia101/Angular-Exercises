@@ -10,7 +10,7 @@ import { throwError } from 'rxjs';
 })
 export class NumberTriviaComponent {
   inputNumber: number = 0;
-  triviaMessage: string = ''; // Specify the type as string
+  triviaMessage: string = ''; 
 
   constructor(private httpClient: HttpClient) {}
 
@@ -19,19 +19,26 @@ export class NumberTriviaComponent {
       const apiUrl = `http://numbersapi.com/${this.inputNumber}`;
 
       this.httpClient
-        .get(apiUrl, { responseType: 'text' }) // Set the responseType to 'text'
+        .get(apiUrl, { responseType: 'text' }) 
         .pipe(
           catchError((error) => {
-            console.error('Error fetching trivia:', error);
-            this.triviaMessage = 'An error occurred while fetching trivia.';
+            if (error.status === 401) {
+              this.triviaMessage = 'Unauthorized access. Please log in.';
+            } else if (error.status === 403) {
+              this.triviaMessage = 'Access to this resource is forbidden.';
+            } else {
+              console.error('Error fetching trivia:', error);
+              this.triviaMessage = 'An error occurred while fetching trivia.';
+            }
             return throwError(error);
           })
         )
         .subscribe((data) => {
-          this.triviaMessage = data; // Data is now a string
+          this.triviaMessage = data; 
         });
     } else {
       this.triviaMessage = '';
     }
   }
 }
+
